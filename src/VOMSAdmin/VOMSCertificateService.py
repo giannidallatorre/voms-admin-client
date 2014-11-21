@@ -35,16 +35,16 @@ class VOMSCertificate:
             return res
         
         except TypeError, e:
-            print "Error deserializing SOAP response:", e
-            print "This is very probably caused by the VO being inactive..."
+            print >> sys.stderr, "Error deserializing SOAP response:", e
+            print >> sys.stderr, "This is very probably caused by the VO being inactive..."
             sys.exit(3)
         
         except error, e:
-            print "Socket error: ", e
+            print >> sys.stderr, "Socket error: ", e
             sys.exit(2)        
         
         except Exception, ex:
-            print ex
+            print >> sys.stderr, ex
             sys.exit(1)
     
     
