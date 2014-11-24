@@ -36,16 +36,16 @@ class VOMSAdmin:
             return res
         
         except TypeError, e:
-            print >> sys.sterr, 'Error deserializing SOAP response:', e
-            print >> sys.sterr, 'This is very probably caused by the VO being inactive...'
+            print >> sys.stderr, 'Error deserializing SOAP response:', e
+            print >> sys.stderr, 'This is very probably caused by the VO being inactive...'
             sys.exit(3)
         
         except error, e:
-            print >> sys.sterr, 'Socket error contacting %s: %s' % (self.port.binding.url, e)
+            print >> sys.stderr, 'Socket error contacting %s: %s' % (self.port.binding.url, e)
             sys.exit(2)
             
         except ZSI.FaultException, ex:
-            print >> sys.sterr, ex.fault.string
+            print >> sys.stderr, ex.fault.string
             sys.exit(1)
 
 
